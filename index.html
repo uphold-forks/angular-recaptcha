@@ -53,7 +53,20 @@
     </section>
 
     <section class="main-content">
-      <h2></h2>
+      <h2>Demo</h2>
+      
+      <div class="container" ng-app="testApp" ng-controller="testCtrl">
+        <form ng-submit="submit()">
+            <div
+                vc-recaptcha
+                theme="'light'"
+                key="model.key"
+                on-create="setWidgetId(widgetId)"
+                on-success="setResponse(response)"
+            ></div>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/VividCortex/angular-recaptcha">Angular Recaptcha</a> is maintained by <a href="https://github.com/VividCortex">VividCortex</a>.</span>
