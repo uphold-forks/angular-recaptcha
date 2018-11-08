@@ -1,5 +1,5 @@
 /**
- * @license angular-recaptcha build:2018-07-30
+ * @license angular-recaptcha build:2018-11-30
  * https://github.com/vividcortex/angular-recaptcha
  * Copyright (c) 2018 VividCortex
 **/
@@ -173,7 +173,7 @@
                 var script = $window.document.createElement('script');
                 script.async = true;
                 script.defer = true;
-                script.src = 'https://www.google.com/recaptcha/api.js?onload='+provider.onLoadFunctionName+'&render=explicit';
+                script.src = 'https://www.google.com/recaptcha/api.js?onload='+provider.onLoadFunctionName+'&render='+config.key;
                 $document.find('body')[0].appendChild(script);
             }
 
@@ -221,10 +221,10 @@
                 /**
                  * Executes the reCaptcha
                  */
-                execute: function (widgetId) {
+                execute: function () {
                     validateRecaptchaInstance();
 
-                    recaptcha.execute(widgetId);
+                    return recaptcha.execute.apply(this, arguments);
                 },
 
                 /**
